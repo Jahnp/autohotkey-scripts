@@ -7,30 +7,43 @@
 SendMode Input  ; Recommended for new scripts due to its superior speed and reliability.
 SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 
-CapsLock & f:: ; Control-f
+CapsLock & f:: ; Control-f, Move one character forward
 Send, {Right}
 return
 
-CapsLock & b:: ; Control-b
+CapsLock & b:: ; Control-b, Move one character backward
 Send, {Left}
 return
 
-CapsLock & p:: ; Control-p
+CapsLock & p:: ; Control-p, Move up one line
 Send, {Up}
 return
 
-CapsLock & n:: ; Control-n
+CapsLock & n:: ; Control-n, Move down one line
 Send, {Down}
 return
 
-CapsLock & e:: ; Control-e
+CapsLock & e:: ; Control-e, Move to the end of the line
 Send, {End}
 return
 
-CapsLock & a:: ; Control-a
+CapsLock & a:: ; Control-a, Move to the beginning of the line
 Send, {Home}
 return
 
-CapsLock & d:: ; Control-d
+CapsLock & d:: ; Control-d, Delete one character to the right of the cursor
 Send, {Delete}
+return
+
+CapsLock & h:: ; Control-h, Delete one character to the left of the cursor
+Send, {BackSpace}
+return
+
+CapsLock & k:: ; Control-k, Delete the line after the cursor
+Send, {ShiftDown}{End}{Right}{ShiftUp}{Del}
+return
+
+; Extras
+CapsLock & -:: ; Insert an em dash
+Send, –
 return
