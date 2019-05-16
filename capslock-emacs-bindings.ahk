@@ -45,5 +45,5 @@ return
 
 ; Extras
 CapsLock & -:: ; Insert an em dash
-Send, –
+Send, —
 return
