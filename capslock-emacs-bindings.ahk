@@ -40,10 +40,34 @@ Send, {BackSpace}
 return
 
 CapsLock & k:: ; Control-k, Delete the line after the cursor
-Send, {ShiftDown}{End}{Right}{ShiftUp}{Del}
+Send, {ShiftDown}{End}{ShiftUp}{Del}
 return
 
 ; Extras
 CapsLock & -:: ; Insert an em dash
 Send, —
 return
+
+LWin & P:: ; Media play/pause
+If GetKeyState("Shift","p")
+ Send {Media_Play_Pause}
+else
+ SendInput, {Shift up}{LWin down}p
+Return
+
+LWin & F:: ; Media forward
+If GetKeyState("Shift","p")
+ Send {Media_Next}
+else
+ ;Send, {#p}
+ SendInput, {Shift up}{LWin down}f
+Return
+
+
+LWin & B:: ; Media backward
+If GetKeyState("Shift","p")
+ Send {Media_Prev}
+else
+ ;Send, {#p}
+ SendInput, {Shift up}{LWin down}b
+Return
