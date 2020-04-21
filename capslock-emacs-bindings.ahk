@@ -1,5 +1,5 @@
 ﻿; Simple script that simulates some of Mac OS X's global Emacs-like text-movement
-; keyboard shortcuts (like Control-f) on Windows, by subsituting Control with CapsLock.
+; keyboard shortcuts (like Control-f) on Windows, by substituting Control with CapsLock.
 ; See https://support.apple.com/en-us/HT201236 for a reference of all Mac OS X keyboard shortcuts.
 
 #NoEnv  ; Recommended for performance and compatibility with future AutoHotkey releases.
@@ -43,31 +43,29 @@ CapsLock & k:: ; Control-k, Delete the line after the cursor
 Send, {ShiftDown}{End}{ShiftUp}{Del}
 return
 
-; Extras
-CapsLock & -:: ; Insert an em dash
-Send, —
-return
-
-LWin & P:: ; Media play/pause
+; Media controls
+LWin & p:: ; Win-shift-p, Media play/pause
 If GetKeyState("Shift","p")
  Send {Media_Play_Pause}
 else
  SendInput, {Shift up}{LWin down}p
-Return
+return
 
-LWin & F:: ; Media forward
+LWin & f:: ; Win-shift-f, Media forward
 If GetKeyState("Shift","p")
  Send {Media_Next}
 else
- ;Send, {#p}
  SendInput, {Shift up}{LWin down}f
-Return
+return
 
-
-LWin & B:: ; Media backward
+LWin & b:: ; Win-shift-b, Media backward
 If GetKeyState("Shift","p")
  Send {Media_Prev}
 else
- ;Send, {#p}
  SendInput, {Shift up}{LWin down}b
-Return
+return
+
+; Extras
+CapsLock & -:: ; Insert an em dash
+Send, —
+return
