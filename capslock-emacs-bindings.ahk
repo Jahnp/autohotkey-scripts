@@ -44,27 +44,35 @@ Send, {ShiftDown}{End}{ShiftUp}{Del}
 return
 
 ; Media controls
-Shift & p:: ; Win-shift-p, Media play/pause
-If GetKeyState("LWin","p")
- Send {Media_Play_Pause}
-else
-  Send P
-return
+; Temporarily removing these behaviors because they interfere with existing
+; key combinations too much (e.g. the current handling of Shift + P means
+; combos like ctrl + shift + p aren't sent in apps like VS Code).
+; Solutions should include 1.) finding a way to send the "default" inputs
+; 2.) just binding the media controls to another, less problematic key combination
+; Maybe just overriding the default LWin key behavior is enough? Do I really ever send
+; stuff to the feedback hub?
+; 
+; Shift & p:: ; Win-shift-p, Media play/pause
+; If GetKeyState("LWin","p")
+;  Send {Media_Play_Pause}
+; else
+;   Send P
+; return
 
-; LWin & f:: ; Win-shift-f, Media forward
-Shift & f:: ; Win-shift-f, Media forward
-If GetKeyState("LWin","p")
- Send {Media_Next}
-else
- Send F
-return
+; ; LWin & f:: ; Win-shift-f, Media forward
+; Shift & f:: ; Win-shift-f, Media forward
+; If GetKeyState("LWin","p")
+;  Send {Media_Next}
+; else
+;  Send F
+; return
 
-Shift & b:: ; Win-shift-b, Media backward
-If GetKeyState("LWin","p")
- Send {Media_Prev}
-else
- Send B
-return
+; Shift & b:: ; Win-shift-b, Media backward
+; If GetKeyState("LWin","p")
+;  Send {Media_Prev}
+; else
+;  Send B
+; return
 
 ; Extras
 CapsLock & -:: ; Insert an em dash
