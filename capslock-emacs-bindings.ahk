@@ -44,25 +44,26 @@ Send, {ShiftDown}{End}{ShiftUp}{Del}
 return
 
 ; Media controls
-LWin & p:: ; Win-shift-p, Media play/pause
-If GetKeyState("Shift","p")
+Shift & p:: ; Win-shift-p, Media play/pause
+If GetKeyState("LWin","p")
  Send {Media_Play_Pause}
 else
- SendInput, {Shift up}{LWin down}p
+  Send P
 return
 
-LWin & f:: ; Win-shift-f, Media forward
-If GetKeyState("Shift","p")
+; LWin & f:: ; Win-shift-f, Media forward
+Shift & f:: ; Win-shift-f, Media forward
+If GetKeyState("LWin","p")
  Send {Media_Next}
 else
- SendInput, {Shift up}{LWin down}f
+ Send F
 return
 
-LWin & b:: ; Win-shift-b, Media backward
-If GetKeyState("Shift","p")
+Shift & b:: ; Win-shift-b, Media backward
+If GetKeyState("LWin","p")
  Send {Media_Prev}
 else
- SendInput, {Shift up}{LWin down}b
+ Send B
 return
 
 ; Extras
